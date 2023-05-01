@@ -21,3 +21,11 @@ def save_object(file_path, obj):
     except Exception as e:
         logging.info("Exception has occured in utils.save_object")
         raise CustomException(e, sys)
+
+
+def evaluate_model(y_test, y_hat):
+    mae = mean_absolute_error(y_test, y_hat)
+    mse = mean_squared_error(y_test, y_hat)
+    rmse = np.sqrt(mse)
+    r2_square = r2_score(y_test, y_hat)
+    return mae, rmse, r2_square

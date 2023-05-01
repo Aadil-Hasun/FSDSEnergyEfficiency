@@ -86,7 +86,9 @@ class DataTransformation:
                                   columns=preprocessor_y.get_feature_names_out())
             logging.info("Preprocessing completed")
 
+            # Concatenating X_train and y_train into a single numpy array
             train_arr = np.c_[X_train, y_train]
+            # Concatenating X_test and y_test into a single numpy array
             test_arr = np.c_[X_test, y_test]
 
             # Saving the preprocessor objects

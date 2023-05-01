@@ -31,7 +31,7 @@ class DataIngestion:
             df.to_csv(self.ingestion_config.raw_data_path, index=False)
 
             logging.info('Begin Train/Test Split')
-            train_data, test_data = train_test_split(df, test_size=0.2, random_state=34)
+            train_data, test_data = train_test_split(df, test_size=0.25, random_state=42)
             train_data.to_csv(self.ingestion_config.train_data_path, index=False, header=True)
             test_data.to_csv(self.ingestion_config.test_data_path, index=False, header=True)
             logging.info("Data Ingestion completed successfully!")
@@ -46,8 +46,8 @@ class DataIngestion:
             raise CustomException(e, sys)
 
 
-if __name__ == '__main__':
-    obj = DataIngestion()
-    train_data_path, test_data_path = obj.initiate_data_ingestion()
-    data_transformation = DataTransformation()
-    train_arr, test_arr, scaler, x_scaler = data_transformation.initiate_data_transformation(train_data_path, test_data_path)
+# if __name__ == '__main__':
+#     obj = DataIngestion()
+#     train_data_path, test_data_path = obj.initiate_data_ingestion()
+#     data_transformation = DataTransformation()
+#     train_arr, test_arr, scaler, x_scaler = data_transformation.initiate_data_transformation(train_data_path, test_data_path)
