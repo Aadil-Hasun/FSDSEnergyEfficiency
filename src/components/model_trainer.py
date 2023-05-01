@@ -26,9 +26,9 @@ class ModelTrainer:
             logging.info("Splitting input and target variables")
             X_train, y_train, X_test, y_test = (
                 train_array[:, :-2],
-                train_array[:, -2],
+                train_array[:, -2:],
                 test_array[:, :-2],
-                test_array[:, -2]
+                test_array[:, -2:]
             )
 
             models = {
