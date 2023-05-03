@@ -54,7 +54,7 @@ class ModelTrainer:
             for model in model_score:
                 model_r2_score_dict[model] = model_score[model]['r2_square']
 
-            best_model_name = sorted(model_r2_score_dict, key=lambda x: x[1])[0]
+            best_model_name = sorted(model_r2_score_dict.items(), key=lambda x: x[1], reverse=True)[0][0]
             print(f'Best Model Found! , Model name: {best_model_name}, R2 Score: {model_r2_score_dict[best_model_name]}')
             print('='*40)
             logging.info(f'Best Model Found! , Model name: {best_model_name}, R2 Score: {model_r2_score_dict[best_model_name]}')
